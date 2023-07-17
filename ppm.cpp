@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream> // for file operations
+#include "color.h" // for wrt_clr
+
 
 int main() {
     // creating img specifications
@@ -18,23 +20,15 @@ int main() {
         // otherwise, the console will not update until the entire image is rendered
         // and the user will not see the progress which is bad if there's an error at some point
         std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+
         for (int i = 0; i < img_width; ++i) {
             // cast to double to ensure auto compiles as double
             // and then cast back to int to ensure you are colouring each distinct pixel, essentially 
             // we are weighting each pixel by its position in the image
             // getting a red corner, a green corner, and a blue corner
             // pretty standard cis 460 stuff
-            auto r = double(i) / (img_width - 1);
-            auto g = double(j) / (img_height - 1);
-            auto b = 0.25;
-
-            // why scale to 255.999? because we are casting to int, which truncates
-            // so we want to make sure we are truncating to 255, not 256
-            int ir = static_cast<int>(255.999 * r);
-            int ig = static_cast<int>(255.999 * g);
-            int ib = static_cast<int>(255.999 * b);
-
-            file << ir << ' ' << ig << ' ' << ib << '\n';
+            glm::vec3 pixel_color(double(i)/(img_width-1), double(j)/(img_height-1), 0.25);
+            wrt_clr(std::cout, pixel_color);
         }
     }
 
