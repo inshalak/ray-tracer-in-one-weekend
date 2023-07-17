@@ -12,7 +12,11 @@ I'm not doing this. This was 460 hw01, and I could copy my code over but I think
 
 
 ## Part 4: Rays, Simple Camera, Background
-Added in a header file for the rays class and made some initial changes to ppm.cpp.
+Set up a basic camera + tracing system. Added in some descriptors for the LERP function and it's set to default pink for now. Use this part to brush up on some virtual camera related terms from 460 that had slipped my mind. Overall pretty straightforward and a solid 4/10 experience but I think without guidelines I could potentially set up this by myself starting from scratch.
+
+
+
+
 
 
 
