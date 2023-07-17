@@ -14,11 +14,7 @@ I'm not doing this. This was 460 hw01, and I could copy my code over but I think
 ## Part 4: Rays, Simple Camera, Background
 Set up a basic camera + tracing system. Added in some descriptors for the LERP function and it's set to default pink for now. Use this part to brush up on some virtual camera related terms from 460 that had slipped my mind. Overall pretty straightforward and a solid 4/10 experience but I think without guidelines I could potentially set up this by myself starting from scratch.
 
-
-
-
-
-
+<img width="397" alt="background 1" src="https://github.com/inshalak/ray-tracer-in-one-weekend/assets/104465349/ba0b8c53-0efd-46f1-b7e3-f73961ebb5ee">
 
 
 
