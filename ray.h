@@ -20,7 +20,7 @@ class ray {
 
     // using float instead of double for t because we don't need the precision
     // we're just using it to find the point along the ray atleast at the scale i'll use this for
-    const glm::dvec3 at(float t) {
+    glm::vec3 at(float t) {
         return orig + dir*t;
     }
 

@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-bool hit_sphere(const glm::vec3 center, double radius, const ray& r) {
+double hit_sphere(const glm::vec3 center, double radius, const ray& r) {
    //(𝐏+𝑡𝐔−𝐂)⋅(𝐏+𝑡𝐔−𝐂)=𝑟2 i.e.(𝐏−𝐂)⋅(𝐏−𝐂)−𝑟2+2𝑡𝐔⋅(𝐏−𝐂)+𝑡2(𝐔⋅𝐔)=0
 
     // calculate dist from ray's origin to center of sphere
@@ -31,23 +31,33 @@ bool hit_sphere(const glm::vec3 center, double radius, const ray& r) {
 
     // i understand that the way we did it in the book allows us to get a sense of the 3Dness of the sphere
 
-
-    return (discriminant > 0); 
+    // what the discriminant is telling us is whether or not the ray intersects the sphere
+    // then we return the value of t that gives us the intersection point
+    // and we can colour it accordingly 
+    if (discriminant < 0) {
+        return -1.0;
+    } else {
+        return (-b - sqrt(discriminant) ) / (2.0*a);
+    }
 
 }
 
-glm::vec3 ray_color(const ray& r) {
-    glm::vec3 unit_direction = glm::normalize(r.direction());
-    float t = 0.5*(unit_direction.y + 1.0);
-    glm::vec3 white = glm::vec3(1.0, 1.0, 1.0);
-    glm::vec3 pink = glm::vec3(1.0, 0.75, 0.79);
-    glm::vec3 blue = glm::vec3(0.5, 0.7, 1.0);
+glm::vec3 ray_color(ray& r) {
+   // glm::vec3 white = glm::vec3(1.0, 1.0, 1.0);
+   // glm::vec3 pink = glm::vec3(1.0, 0.75, 0.79);
+   // glm::vec3 blue = glm::vec3(0.5, 0.7, 1.0);
 
-    if (hit_sphere(glm::vec3(0,0,1), 0.25, r)) {
-        return blue;
-    };
-  
-    return (1.f-t)*white + t*pink;
+    float t = hit_sphere(glm::vec3(0,0,-1), 0.5, r);
+    if (t > 0.0) {
+        glm::vec3 N = glm::normalize(r.at(t) - glm::vec3(0,0,-1));
+        // we are using the normal vector as the color
+        return 0.5f*glm::vec3(N.x+1, N.y+1, N.z+1);
+    }
+    // if ray doesn't hit sphere, we render the background
+    // we do this by interpolating between white and pink based on the y value of the ray
+    t = 0.5*(glm::normalize(r.direction()).y + 1.0);
+
+    return (1.f - t) * glm::vec3(1.f, 1.f, 1.f) + t * glm::vec3(1.0, 0.75, 0.79);
 }
 
 
