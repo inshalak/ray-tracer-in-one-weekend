@@ -17,5 +17,12 @@ Set up a basic camera + tracing system. Added in some descriptors for the LERP f
 <img width="397" alt="background 1" src="https://github.com/inshalak/ray-tracer-in-one-weekend/assets/104465349/ba0b8c53-0efd-46f1-b7e3-f73961ebb5ee">
 
 
+## Part 5: Spheres
+5.1/5.2 :Thought I'd forgotten 11th grade geometry but lin alg remains kinda fresh? It was embarrassing to look up sphere intersection with vector formula on stack overflow but atleast I could figure it out quick enough. Coding it up did not take much time although I'm probably going to scrap this for a Sphere class instead later on, just seems more convenient or rather some sort of class that helps me store shapes of different types. 
+
+
+
+
+
 
 

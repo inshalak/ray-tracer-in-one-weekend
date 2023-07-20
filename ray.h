@@ -24,6 +24,23 @@ class ray {
         return orig + dir*t;
     }
 
+    bool hit_sphere(const glm::vec3 center, double radius, const ray& r) {
+   //(𝐏+𝑡𝐔−𝐂)⋅(𝐏+𝑡𝐔−𝐂)=𝑟2 i.e.(𝐏−𝐂)⋅(𝐏−𝐂)−𝑟2+2𝑡𝐔⋅(𝐏−𝐂)+𝑡2(𝐔⋅𝐔)=0
+
+    // calculate dist from ray's origin to center of sphere
+    glm::vec3 sph = r.origin() - center;
+
+    // calculate the quadratic equation of the intersection of sphere with ray
+    auto a =  glm::dot(r.direction(), r.direction());
+    auto b = glm::dot(2.0f * sph, r.direction());
+    auto c = glm::dot(sph, sph) - radius*radius;
+    // calculate the discriminant
+    auto discriminant = b*b - 4*a*c;
+
+    return (discriminant > 0); 
+
+}
+
 };
 
 
