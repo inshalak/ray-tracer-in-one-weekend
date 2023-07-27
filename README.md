@@ -23,6 +23,12 @@ Set up a basic camera + tracing system. Added in some descriptors for the LERP f
 <img width="392" alt="sphere2" src="https://github.com/inshalak/ray-tracer-in-one-weekend/assets/104465349/64c7f4cd-2d54-497d-89ab-1e3282390ec9">
 
 
+##Finishing up - got lazy but will update this blog
+These are some of the new renders using Monte Carlo Path Tracing. Runs slow but I am working on making the Path Tracer GPU Based to add efficiency. 
+
+
+<img width="670" alt="Screenshot 2023-07-27 at 3 49 55 AM" src="https://github.com/inshalak/ray-tracer-in-one-weekend/assets/104465349/41260520-dcea-4e5a-8924-819bb0c4b916">
+<img width="670" alt="Screenshot 2023-07-27 at 3 49 43 AM" src="https://github.com/inshalak/ray-tracer-in-one-weekend/assets/104465349/38460388-0cf3-4072-ba02-957674a823fb">
 
 
 
